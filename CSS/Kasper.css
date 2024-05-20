@@ -1,0 +1,1049 @@
+/* Start Variables */
+:root {
+    --main-color: #19c8fa;
+    --transparent-color: rgb(39 126 152 / 60%);
+    --section-padding: 100px;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+    /* Click Links بيروح ع اي سكشن او صفحه يروح بطريقه ناعمه */
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Mobile & Small Screens */
+@media (min-width: 768px) {
+    .container {
+        width: 750;
+    }
+}
+/* Medium Screens */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+/* Start Heading Component */
+.Main-Heading {
+    text-align: center;
+}
+.Main-Heading h2{
+   font-weight: normal;
+   text-transform: uppercase;
+   font-size: 40px;
+   margin-bottom: 70px;
+   position: relative;
+}
+.Main-Heading h2::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background-color: #333;
+    bottom: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+ }
+ .Main-Heading h2::after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+
+ }
+.Main-Heading p {
+    width: 500px;
+    margin: 0 auto 100px;
+    max-width: 100%;
+    line-height: 2;
+    color: #777;
+}
+
+/* End Heading Component */
+/* Start Header */
+header {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   z-index: 2;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 100px;
+    /* min-height no height
+    عشان لو ف يوم من يوم من الايام زودت البادنج بتاع اللينكات يبدأ يزيد معاك وميقفش عند 100 */
+}
+header .container::after {
+    content: '';
+    position: absolute;
+    background-color: #a2a2a2;
+    height: 1px;
+    left: 15px;
+    width: calc(100% - 30px);
+    bottom: 0;
+    /* z-index: -1; */
+}
+header nav {
+    flex: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+header nav .toggle-menu {
+    color: white;
+    font-size: 20px;
+}
+/* All Screens not Mobile */
+@media (min-width: 768px) {
+    header nav .toggle-menu {
+        display: none;
+    }
+}
+header nav ul {
+    display: flex;
+}
+/* Mobile */
+@media (max-width: 767px) {
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        /* right: 0; */
+        width: 100%;
+        background-color: rgb(0 0 0 / 40%);
+    }
+    header nav .toggle-menu:hover + ul {
+        display: flex;
+        /* كأني بقوله المختفي راح  */
+    }
+    /* header nav .toggle-menu:hover + ul li a {
+        padding: 15px;
+    } */
+    header nav ul li a {
+        padding: 15px !important;
+    }
+}
+header nav ul li a {
+    padding: 40px 10px;
+    /* Top => 40 Right => 20 Bottom => 30 Left => 20 */
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 14px;
+    transition: 0.4s;
+    position: relative;
+    z-index: 1;
+}
+header nav ul li a.Active ,
+header nav ul li a:hover {
+color: var(--main-color);
+border-bottom: 1px solid var(--main-color);
+/* position: relative;
+z-index: 2; */
+}
+header nav .Form {
+    width: 40px;
+    height: 30px;
+    margin-left: 20px;
+    position: relative;
+    border-left: 1px solid white;
+
+}
+header nav .Form i {
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+/* header nav .Form i {
+   color: white;
+   font-size: 20px;
+   position: absolute;
+   top: 7px;
+   left: 19px;
+} */
+/* End Header */
+/* Start Landing */
+.Landing {
+    min-height: 100vh;
+    background-color: rgb(199, 26, 26);
+    background-image: url(../Imags/landing.jpg);
+    background-size: cover;
+    position: relative;
+}
+.Overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+}
+.Landing .Overlay .Text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: white;
+    background-color: var(--transparent-color);
+    padding: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.Landing .Overlay .Text .Content {
+    max-width: 500px;
+}
+.Landing .Overlay .Text .Content h2 {
+    font-size: 33px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 15PX;
+}
+.Landing .Overlay .Text .Content p {
+font-size: 15px;
+line-height: 2;
+}
+.Landing .Overlay .Change-background {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+.Landing .Overlay .Left {
+    left: 30px;
+
+}
+.Landing .Overlay .Right {
+    right: 30px;
+}
+@media (max-width: 767px) {
+    .Landing .Overlay .Text {
+        width: 100%;
+    }
+    .Landing .Overlay .Change-background {
+       display: none;
+    }
+    .Landing .Text .Content {
+        max-width: 500px;
+      }
+}
+.Landing .Overlay ul.Bulltes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+    /* flex-direction: row; */
+}
+.Landing .Overlay li {
+    border: 1px solid white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.Landing .Overlay li.Light {
+    background-color: var(--main-color);
+    /* border: none; */
+    border: 1px solid var(--main-color);
+}
+/* End Landing */
+ /* Start Services Section */
+.Services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+
+ }
+ @media (min-width: 768px) {
+    .Service-Container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill , minmax(450px,1fr));
+        grid-column-gap: 40px;
+        grid-row-gap: 60px;
+    }
+}
+.Service-Container .Srv-Box {
+    display: flex;
+}
+.Service-Container .Srv-Box i {
+    margin-right: 50px;
+}
+ @media (max-width: 767px) {
+    .Service-Container .Srv-Box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .Service-Container .Srv-Box i {
+        margin: 0 0 30px;
+    }
+ }
+
+.Service-Container .Srv-Box .Text h3 {
+    color: var(--main-color);
+    margin-bottom: 30px;
+
+}
+.Service-Container .Srv-Box .Text p {
+    line-height: 2;
+    color: #777;
+}
+ /* End Services Section  */
+ /* Start Design */
+ .Design {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    height: 600px;
+    background-image: url(../Imags/design-features.jpg);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+ .Design::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 60%);
+}
+ .Design .Image {
+    text-align: center;
+}
+ .Design img {
+    position: relative;
+    bottom: -130px;
+}
+ .Design .Text {
+    color: white;
+    background-color: var(--transparent-color);
+    position: relative;
+    padding: 60px;
+}
+ .Design .Image ,
+ .Design .Text {
+    flex-grow: 1;
+    z-index: 1;
+}
+@media (max-width: 767px)  {
+    .Design .Image {
+      display: none;
+    }
+}
+.Design .Text h2 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+.Design .Text ul li {
+    padding: 15px 0;
+    /* Top = 15 Right = 0 Bottom = 15 Left = 0 */
+}
+.Design .Text ul li::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f108";
+    font-weight: 900;
+    margin-right: 20px;
+    position: relative;
+    top: 1px;
+}
+ /* End Design */
+/* Start Portfolio  */
+.Portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.Portfolio .Shuffle {
+    display: flex;
+    justify-content: center;
+
+}
+.Portfolio .Shuffle li {
+    /* margin-right: 20px; */
+    padding: 10px;
+}
+.Portfolio .Shuffle li.Active {
+    color: white;
+    background-color: var(--main-color);
+}
+.Portfolio .Shuffle li:hover {
+    color: white;
+    background-color: var(--main-color);
+}
+.Portfolio .Img-Content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.Portfolio .Img-Content .Box {
+    overflow: hidden;
+    position: relative;
+}
+.Portfolio .Img-Content .Box:hover .Caption {
+    bottom: 0;
+}
+.Portfolio .Img-Content .Box:hover img {
+    transform: rotate(3deg) scale(1.1);
+}
+@media (min-width: 768px) {
+    .Portfolio .Img-Content .Box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1199px) {
+    .Portfolio .Img-Content .Box {
+        flex-basis: 25%;
+    }
+}
+.Portfolio .Img-Content .Box img {
+   max-width: 100%;
+   transition: 0.3s;
+}
+.Portfolio .Img-Content .Box .Caption {
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    background-color: white;
+    width: 100%;
+    transition: 0.3s;
+    bottom: -100%;
+  }
+  .Portfolio .Img-Content .Box .Caption h4 {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  .Portfolio .Img-Content .Box .Caption p {
+    color: var(--main-color);
+  }
+  .Portfolio .More {
+    background-color: var(--main-color);
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    width: fit-content;
+    margin: 30px auto;
+    /* 2 Way Center */
+    /* display: block;  */
+    display: flex;
+    align-self: center;
+
+  }
+ /* End Portfolio  */
+ /* Start Video */
+ .Video {
+    position: relative;
+ }
+ .Video::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+ }
+ .Video video {
+    max-width: 100%;
+    /* width: 100%; */
+}
+.Video .Text {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    background-color: var(--transparent-color);
+    color: white;
+    padding: 50px;
+}
+ .Video .Text h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+ .Video .Text p{
+    margin-bottom: 30px;
+}
+ .Video .Text button{
+    background-color: black;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+}
+/* End Video */
+/* Start About */
+.About {
+    padding-top: var(--section-padding);
+    text-align: center;
+    overflow: hidden;
+}
+.About img {
+    position: relative;
+    bottom: -120px;
+    margin-top: -120px;
+    max-width: 100%;
+}
+ @media (max-width: 767px) {
+    .About img {
+        bottom: -60px;
+        margin-top: -60px;
+    }
+}
+ /* End About */
+ /* Start Stats */
+.Stats {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url(../Imags/stats.png);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+.Stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+}
+.Stats .container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Stats .container .Box {
+    color: white;
+    padding: 50px;
+    background-color: var(--transparent-color);
+}
+@media (max-width: 767px) {
+    .Stats .container .Box {
+        flex-basis: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .Stats .container .Box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .Stats .container .Box {
+        flex-basis: 25%;
+    }
+}
+ .Stats .container .Box i {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+}
+.Stats .container .Box .Number {
+    font-weight: bold;
+    font-size: 50px;
+    margin:  0 0 20px;
+}
+.Stats .container .Box p {
+    font-size: 15px;
+}
+/* End Stats */
+/* Start Skills */
+.Our-Skills {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.Our-Skills .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+@media (min-width: 992px) {
+    .Our-Skills .container > div {
+        flex-basis: 45%;
+    }
+}
+.Our-Skills .container > div > h3 {
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    /* margin:  0 0 30px; */
+    margin-bottom: 30px;
+    /* Top Right Bottom Left */
+}
+ /* .Our-Skills .container > div > p  */
+ .Our-Skills .container div > p{
+  color: #777;
+  line-height: 1.9;
+  font-size: 17px;
+  text-align: center;
+  /* margin:  0 0 60px; */
+  margin-bottom: 60px;
+}
+.Our-Skills .container .Testimonials .Content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+.Our-Skills .container .Testimonials .Content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+@media (max-width: 767px) {
+    .Our-Skills .Testimonials .Content
+    {
+      flex-direction: column;
+      text-align: center;
+    }
+    .Our-Skills .Testimonials .Content img
+    {
+      margin: 0 auto 20px;
+    }
+}
+.Our-Skills .container .Testimonials .Content .Text {
+   line-height: 1.9;
+   border-bottom: 1px solid #ccc;
+}
+.Our-Skills .container .Testimonials .Content .Text p {
+   color: #777;
+   font-size: 15px;
+   text-align: right;
+   margin-bottom: 10px;
+}
+.Our-Skills .container .Testimonials ul.Bullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.Our-Skills .container .Testimonials ul.Bullets li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    margin-right: 10px;
+}
+.Our-Skills .container .Testimonials ul.Bullets li.Active {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    /* border-color: var(--main-color); */
+}
+.Our-Skills .container .Skills .Prog-Holder {
+    margin-bottom: 40px;
+}
+.Our-Skills .container .Skills .Prog-Holder h4 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+.Our-Skills .container .Skills .Prog-Holder .Prog {
+    height: 30px;
+    background-color: #dedadc;
+}
+.Our-Skills .container .Skills .Prog-Holder .Prog span {
+    display: block;
+    background-color: var(--main-color);
+    /* height: 30px; */
+    height: 100%;
+    position: relative;
+}
+.Our-Skills .container .Skills .Prog-Holder .Prog span::before {
+    content: attr(data-progress);
+    position: absolute;
+    top: -40px;
+    right: -18px;
+    width: 30px;
+    /* height: 20px; */
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 4px 5px;
+    border-radius: 4px;
+}
+.Our-Skills .container .Skills .Prog-Holder .Prog span::after {
+    content: "";
+    position: absolute;
+    top: -17px;
+    right: -8px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: black transparent transparent transparent;
+}
+ /* End Skills */
+ /* Start Quote */
+.Quote {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url(../Imags/quote.jpg);
+    background-size: cover;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.Quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 75%);
+}
+.Quote .container {
+    position: relative;
+
+}
+.Quote q {
+    font-size: 33px;
+    margin-bottom: 20px;
+    display: block;
+}
+ /* End Quote */
+ /* Start Pricing Section */
+ .Pricing {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+ }
+ .Pricing .container {
+
+ }
+ .Pricing .container .Plans {
+   display: grid;
+   grid-template-columns: repeat(auto-fill ,minmax(250px,1fr));
+   grid-gap: 30px;
+ }
+ .Pricing .container .Plans .Plan {
+   background-color: #fcfcfc;
+   text-align: center;
+ }
+ .Pricing .container .Plans .Plan .Head {
+   padding: 40px 20px;
+   border-top: 1px solid var(--main-color);
+   border-bottom: 1px solid var(--main-color);
+ }
+ .Pricing .container .Plans .Plan .Head h3 {
+   text-transform: uppercase;
+   font-weight: normal;
+   margin-bottom: 20px;
+ }
+ .Pricing .container .Plans .Plan .Head span {
+   font-weight: bold;
+   font-size: 60px;
+   position: relative;
+ }
+ .Pricing .container .Plans .Plan .Head span::before {
+   content: '$';
+   font-size: 25px;
+   font-weight: normal;
+   position: absolute;
+   top: -10px;
+   left: -33px;
+   /* content: "$";
+  font-size: 25px;
+  position: relative;
+  top: -40px;
+  margin-right: 15px;
+  font-weight: normal; */
+ }
+ .Pricing .container .Plans .Plan .Head span::after {
+   content: "/Mo";
+   font-size: 20px;
+   position: absolute;
+   right: -50px;
+   top: 36px;
+}
+ .Pricing .container .Plans .Plan ul {
+   border-bottom: 1px solid var(--main-color);
+}
+ .Pricing .container .Plans .Plan ul li {
+    position: relative;
+    padding: 20px;
+}
+/* .Pricing .container .Plans .Plan ul li:not(:last-child)::after  */
+.Pricing .container .Plans .Plan ul li:not(:nth-child(4))::after
+{
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 1px;
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+ .Pricing .container .Plans .Plan .Foot a {
+    text-decoration: none;
+    border: 1px solid var(--main-color);
+    padding: 20px 30px;
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+}
+ /* .Pricing .container .Contact-Text  */
+ .Pricing .container p.Contact-Text {
+    text-align: center;
+    font-size: 20px;
+    margin: 50px auto 20px;
+}
+ /* .Pricing .container .Contact-Link  */
+ .Pricing .container a.Contact-Link {
+    text-decoration: none;
+    color: white;
+    background-color: var(--main-color);
+    padding: 15px 30px;
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+}
+ /* End Pricing Section */
+ /* Start Subscribe */
+.Subscribe {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url(../Imags/subscribe.jpg);
+    background-size: cover;
+    color: white;
+    position: relative;
+}
+.Subscribe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+}
+.Subscribe .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 991px) {
+    .Subscribe .container {
+      flex-direction: column;
+    }
+  }
+.Subscribe .container form {
+    display: flex;
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+}
+.Subscribe .container form i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+}
+.Subscribe .container form input[type="email"] {
+    padding: 20px 20px 20px 60px;
+    background: none;
+    border: 1px solid white;
+    caret-color: var(--main-color);
+    width: calc(100% - 130px);
+    border-right: none;
+}
+.Subscribe .container form input[type="submit"] {
+    color: white;
+    width: 130px;
+    background-color: var(--main-color);
+    text-transform: uppercase;
+    border: 1px solid white;
+    border-left: none;
+    padding: 10px 20px;
+}
+.Subscribe .container form input[type="email"] ,
+.Subscribe .container form input[type="submit"] 
+{
+    outline: none;
+}
+.Subscribe .container form ::placeholder {
+    color: white;
+}
+.Subscribe .container p {
+    line-height: 2;
+    margin-left: 50px;
+    font-size: 17px;
+}
+@media (max-width: 991px) {
+    .Subscribe .container p {
+      margin-top: 30px;
+      margin: 30px 0 0;
+      /* Top Right Bottom Left */
+    }
+}
+ /* End Subscribe */
+ /* Start Contact */
+ .Contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+ }
+ .Contact .Content {
+    display: flex;
+    justify-content: space-between;
+ }
+ @media (max-width: 767px) {
+    .Contact .Content {
+      flex-direction: column;
+    }
+  }
+ .Contact .Content form {
+    flex-basis: 70%;
+ }
+ .Contact .Content form .Main-Input {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: block;
+ }
+ .Contact .Content form .Main-Input:focus {
+    outline: none;
+ } 
+ .Contact .Content form textarea.Main-Input {
+    height: 200px;
+ }
+ .Contact .Content form input[type="submit"] {
+    text-transform: uppercase;
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    padding: 20px;
+    display: flex;
+    margin-left: auto;
+    cursor: pointer;
+ }
+ .Contact .Content .Info {
+    flex-basis: 25%;
+ }
+ @media (max-width: 767px) {
+    .Contact .Content .Info {
+      order: -1;
+      text-align: center;
+    }
+  }
+ .Contact .Content .Info h4 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 30px;
+    font-size: 18px;
+ }
+ .Contact .Content .Info h4:nth-of-type(2) {
+    margin-top: 90px;
+ }
+ .Contact .Content .Info span.Phone {
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+ }
+ .Contact .Content .Info address {
+    color: #777;
+    line-height: 2;
+ }
+ @media (max-width: 767px) {
+    .Contact .Content .Info h4:nth-of-type(2) {
+        margin-top: 30px;
+    }
+    .Contact .Content .Info address {
+        margin-bottom: 40px;
+    }
+ }
+ /* End Contact */
+ /* Start Footer  */
+ footer {
+    padding-top: calc(var(--section-padding) / 2);
+    padding-bottom: calc(var(--section-padding) / 2);
+    background-image:url(../Imags/subscribe.jpg);
+    background-size: cover;
+    position: relative;
+    color: white;
+    text-align: center;
+ }
+ footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+ }
+ footer .container {
+    position: relative;
+ }
+ footer img {
+    margin-bottom: 20px;
+ }
+ footer .container p:not(.Copy-Right) {
+    text-transform: uppercase;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    width: fit-content;
+    padding: 20px;
+    margin: 20px auto;
+ }
+ footer .container .Socail-Icons i {
+    padding: 10px 15px;
+ }
+ footer .container p.Copy-Right {
+    margin-top: 60px;
+ }
+ footer .container p.Copy-Right span {
+    font-weight: bold;
+    color: var(--main-color);
+ }
+ /* End Footer */
